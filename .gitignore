@@ -23,6 +23,7 @@ lib/
 lib64/
 parts/
 sdist/
+share/
 var/
 *.egg-info/
 .installed.cfg
@@ -94,4 +95,6 @@ ENV/
 # Rope project settings
 .ropeproject
 
-
+# Other
+pip-selfcheck.json
+status
