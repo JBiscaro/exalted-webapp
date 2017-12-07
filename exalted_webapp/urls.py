@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 from calculator import views
 
 urlpatterns = [
     path('', views.index, name='home'),
     path('admin/', admin.site.urls),
+    path(
+        'results/',
+        TemplateView.as_view(template_name='results.html'),
+        name='results')
 ]
