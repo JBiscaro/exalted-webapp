@@ -5,7 +5,7 @@
   <p>I am a basic website!</p>
   <p>{{ number|linebreaks }}</p>
   {% for charm in charms %}
-    <h2>{{ charm.name }}</h2>
+    <h2><a href="{% url 'charm_detail' slug=charm.slug %}">{{ charm.name }}</a></h2>
     <p>{{ charm.description }}<p>
   {% endfor %}
 {% endblock %}

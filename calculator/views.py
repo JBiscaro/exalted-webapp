@@ -15,6 +15,12 @@ def index(request):
         'number': number,
     })
 
+
+def charm_detail(request, slug):
+    charm = Charm.objects.get(slug=slug)
+
+    return render(request, 'charms/charm_detail.html', {'charm': charm})
+
 #   <p>{{ number }}</p>
 # add something like the preceding code in appropriate html file
 

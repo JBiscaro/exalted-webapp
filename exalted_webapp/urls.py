@@ -24,5 +24,6 @@ urlpatterns = [
     path(
         'results/',
         TemplateView.as_view(template_name='results.html'),
-        name='results')
+        name='results'),
+    path(r'charms/<slug>/', views.charm_detail, name='charm_detail'),
 ]
