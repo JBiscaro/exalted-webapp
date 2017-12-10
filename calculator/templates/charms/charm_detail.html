@@ -3,4 +3,5 @@
 {% block content %}
   <h2>{{ charm.name }}</h2>
   <p>{{ charm.description }}<p>
+  <a href="{% url 'edit_charm' slug=charm.slug %}">Edit charm</a>
 {% endblock %}
