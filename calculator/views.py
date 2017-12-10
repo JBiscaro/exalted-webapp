@@ -41,6 +41,7 @@ def results(request):
     total_anima = 0
     total_bashing = 0
     total_lethal = 0
+    total_initiative = 0
 
     for charm in charms:
         total_motes = total_motes + charm.mote_cost
@@ -48,6 +49,7 @@ def results(request):
         total_anima = total_anima + charm.anima_cost
         total_bashing = total_bashing + charm.bashing_cost
         total_lethal = total_lethal + charm.lethal_cost
+        total_initiative = total_initiative + charm.initiative_cost
 
     return render(
         request,
@@ -59,6 +61,7 @@ def results(request):
             'total_anima': total_anima,
             'total_bashing': total_bashing,
             'total_lethal': total_lethal,
+            'total_initiative': total_initiative,
         }
     )
 

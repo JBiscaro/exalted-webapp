@@ -14,14 +14,15 @@ class Charm(models.Model):
     charm_type = models.CharField(max_length=50, blank=True, default='')
     keywords = models.CharField(max_length=255, blank=True, default='')
     duration = models.CharField(max_length=50, blank=True, default='')
-    description = models.TextField()
-    dice_description = models.TextField()
+    description = models.TextField(default='t')
+    dice_description = models.TextField(default='t')
     slug = models.SlugField(unique=True)
     mote_cost = models.SmallIntegerField(blank=True, default=0)
     willpower_cost = models.SmallIntegerField(blank=True, default=0)
     anima_cost = models.SmallIntegerField(blank=True, default=0)
     bashing_cost = models.SmallIntegerField(blank=True, default=0)
     lethal_cost = models.SmallIntegerField(blank=True, default=0)
+    initiative_cost = models.SmallIntegerField(blank=True, default=0)
 
 
 class Selection(models.Model):
