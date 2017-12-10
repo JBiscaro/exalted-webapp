@@ -1,10 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}Edit {{ charm.name }} - {{block.super}}{% endblock %}
 {% block content %}
-<h1>Edit "{{ charm.name }}"</h1>
 <form role="form" action="" method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Submit</button>
 </form>
+<h1>"{{ charm.name }}"</h1>
+<p><b>Motes</b></p>
+<p>{{ charm.mote_cost }}</p>
+{% if charm.willpower_cost %}
+  <p><b>Willpower</b></p>
+  <p>{{ charm.willpower_cost }}</p>
+{% endif %}
+{% if charm.anima_cost %}
+  <p><b>Anima</b></p>
+  <p>{{ charm.anima_cost }}</p>
+{% endif %}
+{% if charm.bashing_cost %}
+  <p><b>Bashing Levels</b></p>
+  <p>{{ charm.bashing_cost }}</p>
+{% endif %}
+{% if charm.lethal_cost %}
+  <p><b>Lethal Levels</b></p>
+  <p>{{ charm.lethal_cost }}</p>
+{% endif %}
+<p><b>Type:</b>{{ charm.charm_type }}</p>
+<p><b>Keywords:</b>{{ charm.keywords }}</p>
+<p><b>Duration:</b>{{ charm.duration }}</p>
+<h1>Description:</h1>
+<p>{{ charm.description|linebreaks }}<p>
+<ul>
+<li>{{ charm.dice_description }}</li>
+</ul>
 {% endblock %}
