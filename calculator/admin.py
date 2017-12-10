@@ -6,7 +6,7 @@ from calculator.models import Charm
 # Register your models here.
 class CharmAdmin(admin.ModelAdmin):
     model = Charm
-    list_display = ('name', 'order')
+    list_display = ('name', 'ability', 'order')
     prepopulated_fields = {
         'slug': ('name',),
     }
