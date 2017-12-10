@@ -15,16 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.views.generic import TemplateView
 from calculator import views
 
 urlpatterns = [
     path('', views.index, name='home'),
     path('admin/', admin.site.urls),
-    path(
-        'results/',
-        TemplateView.as_view(template_name='results.html'),
-        name='results'),
-    path(r'charms/<slug>/', views.charm_detail, name='charm_detail'),
+    path('results/', views.results, name='results'),
     path(r'charms/<slug>/edit/', views.edit_charm, name='edit_charm'),
+    path('selected_charms', views.selected_charms, name='selected_charms'),
+    path('reset', views.reset, name='reset'),
 ]

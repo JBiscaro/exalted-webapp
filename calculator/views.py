@@ -5,20 +5,11 @@ from calculator.models import Charm
 
 # Create your views here.
 def index(request):
-    number = 'Whatup?\nThis is on a new line?'
-
     charms = Charm.objects.all()
 
     return render(request, 'index.html', {
         'charms': charms,
-        'number': number,
     })
-
-
-def charm_detail(request, slug):
-    charm = Charm.objects.get(slug=slug)
-
-    return render(request, 'charms/charm_detail.html', {'charm': charm})
 
 
 def edit_charm(request, slug):
@@ -29,7 +20,7 @@ def edit_charm(request, slug):
         form = form_class(data=request.POST, instance=charm)
         if form.is_valid():
             form.save()
-            return redirect('charm_detail', slug=charm.slug)
+            return redirect('home')
     else:
         form = form_class(instance=charm)
 
@@ -41,6 +32,56 @@ def edit_charm(request, slug):
             'form': form
         }
     )
+
+
+def results(request):
+    charms = Charm.objects.filter(selection=1)
+    total_motes = 0
+    total_will = 0
+    total_anima = 0
+    total_bashing = 0
+    total_lethal = 0
+
+    for charm in charms:
+        total_motes = total_motes + charm.mote_cost
+        total_will = total_will + charm.willpower_cost
+        total_anima = total_anima + charm.anima_cost
+        total_bashing = total_bashing + charm.bashing_cost
+        total_lethal = total_lethal + charm.lethal_cost
+
+    return render(
+        request,
+        'charms/results.html',
+        {
+            'charms': charms,
+            'total_motes': total_motes,
+            'total_will': total_will,
+            'total_anima': total_anima,
+            'total_bashing': total_bashing,
+            'total_lethal': total_lethal,
+        }
+    )
+
+
+def selected_charms(request):
+    charms = Charm.objects.all()
+
+    return render(
+        request,
+        'charms/selected_charms.html',
+        {'charms': charms}
+    )
+
+
+def reset(request):
+    charms = Charm.objects.all()
+
+    for charm in charms:
+        charm.selection = None
+        charm.save()
+
+    return redirect('home')
+
 
 #   <p>{{ number }}</p>
 # add the preceding code (or variation) in appropriate html file

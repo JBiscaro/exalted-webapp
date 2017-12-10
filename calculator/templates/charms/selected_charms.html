@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Selected Charms - {{block.super}}{% endblock %}
+{% block content %}
+{% for charm in charms %}
+{% if charm.selection %}
+  <h1>"{{ charm.name }}"</h1>
+{% endif %}
+{% endfor %}
+{% endblock %}

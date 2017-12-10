@@ -1,7 +1,0 @@
-{% extends 'base.html' %}
-{% block title %}{{ charm.name }} - {{block.super}}{% endblock %}
-{% block content %}
-  <h2>{{ charm.name }}</h2>
-  <p>{{ charm.description }}<p>
-  <a href="{% url 'edit_charm' slug=charm.slug %}">Edit charm</a>
-{% endblock %}

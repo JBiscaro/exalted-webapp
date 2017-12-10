@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Selected Charms - {{block.super}}{% endblock %}
+{% block content %}
+<h1>Total Motes</h1>
+<p>{{ total_motes }}</p>
+{% if total_will %}
+  <h1>Total Willpower</h1>
+  <p>{{ total_will }}</p>
+{% endif %}
+{% if total_anima %}
+  <h1>Total Anima</h1>
+  <p>{{ total_anima }}</p>
+{% endif %}
+{% if total_bashing %}
+  <h1>Total Bashing Levels</h1>
+  <p>{{ total_bashing }}</p>
+{% endif %}
+{% if total_lethal %}
+  <h1>Total Lethal Levels</h1>
+  <p>{{ total_lethal }}</p>
+{% endif %}
+<h2>Dice Details</h2>
+<ul>
+  {% for charm in charms %}
+      <li>{{ charm.dice_description|linebreaks }}</li>
+  {% endfor %}
+</ul>
+{% for charm in charms %}
+<h2>"{{ charm.name }}"</h2>
+<p><b>Type:</b>{{ charm.charm_type }}</p>
+<p><b>Keywords:</b>{{ charm.keywords }}</p>
+<p><b>Duration:</b>{{ charm.duration }}</p>
+<p><b>Description:</b></p>
+<p>{{ charm.description }}</p>
+{% endfor %}
+{% endblock %}
