@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}{{ ability }} - {{block.super}}{% endblock %}
+{% block title %}{{ ability|capfirst }} - {{block.super}}{% endblock %}
 {% block content %}
+  <h2>{{ ability|capfirst }}</h2>
   {% for charm in charms %}
-    <h2><a href="{% url 'edit_charm' slug=charm.slug %}">{{ charm.name|capfirst }}</a></h2>
+    <h3><a href="{% url 'edit_charm' slug=charm.slug %}">{{ charm.name }}</a></h3>
     <p>{{ charm.short_description }}<p>
   {% endfor %}
 {% endblock %}
