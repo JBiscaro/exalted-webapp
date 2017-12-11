@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from calculator.forms import CharmForm
-from calculator.models import Charm
+from calculator.models import Charm, Selection
 
 
 # Create your views here.
@@ -14,22 +13,12 @@ def index(request):
 
 def edit_charm(request, slug):
     charm = Charm.objects.get(slug=slug)
-    form_class = CharmForm
-
-    if request.method == 'POST':
-        form = form_class(data=request.POST, instance=charm)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = form_class(instance=charm)
 
     return render(
         request,
         'charms/edit_charm.html',
         {
             'charm': charm,
-            'form': form
         }
     )
 
@@ -84,6 +73,31 @@ def reset(request):
         charm.save()
 
     return redirect('home')
+
+
+def activate_charm(request, slug):
+    next = request.GET.get('next')
+
+    charm = Charm.objects.get(slug=slug)
+    charm.selection = Selection.objects.first()
+    charm.save()
+
+    # TODO: redirect back to previous page
+    # return redirect('home')
+    return redirect(next)
+
+
+def deactivate_charm(request, slug):
+    next = request.GET.get('next')
+
+    charm = Charm.objects.get(slug=slug)
+    charm.selection = None
+    charm.save()
+
+    # TODO: redirect back to previous page
+    # return redirect('home')
+    return redirect(next)
+#
 
 
 def brawl(request):

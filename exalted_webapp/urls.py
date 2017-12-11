@@ -29,4 +29,6 @@ urlpatterns = [
     path('charms/occult', views.occult, name='occult'),
     path('charms/resistance', views.resistance, name='resistance'),
     path('charms/evocations', views.evocations, name='evocations'),
+    path(r'charms/<slug>/activate', views.activate_charm, name='activate_charm'),
+    path(r'charms/<slug>/deactivate', views.deactivate_charm, name='deactivate_charm'),
 ]
