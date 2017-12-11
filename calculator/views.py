@@ -86,6 +86,48 @@ def reset(request):
     return redirect('home')
 
 
+def brawl(request):
+    ability = 'brawl'
+
+    return ability_selection(request, ability)
+
+
+def athletics(request):
+    ability = 'athletics'
+
+    return ability_selection(request, ability)
+
+
+def occult(request):
+    ability = 'occult'
+
+    return ability_selection(request, ability)
+
+
+def resistance(request):
+    ability = 'resistance'
+
+    return ability_selection(request, ability)
+
+
+def evocations(request):
+    ability = 'evocations'
+
+    return ability_selection(request, ability)
+
+
+def ability_selection(request, ability):
+    charms = Charm.objects.filter(ability=ability)
+
+    return render(
+        request,
+        'charms/ability.html',
+        {
+            'charms': charms,
+            'ability': ability
+        }
+    )
+
 #   <p>{{ number }}</p>
 # add the preceding code (or variation) in appropriate html file
 

@@ -24,4 +24,9 @@ urlpatterns = [
     path(r'charms/<slug>/edit/', views.edit_charm, name='edit_charm'),
     path('selected_charms', views.selected_charms, name='selected_charms'),
     path('reset', views.reset, name='reset'),
+    path('charms/brawl', views.brawl, name='brawl'),
+    path('charms/athletics', views.athletics, name='athletics'),
+    path('charms/occult', views.occult, name='occult'),
+    path('charms/resistance', views.resistance, name='resistance'),
+    path('charms/evocations', views.evocations, name='evocations'),
 ]

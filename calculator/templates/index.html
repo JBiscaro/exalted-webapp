@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Homepage - {{block.super}}{% endblock %}
 {% block content %}
-  {% for charm in charms %}
-    <h2><a href="{% url 'edit_charm' slug=charm.slug %}">{{ charm.name }}</a></h2>
-    <p>{{ charm.short_description }}<p>
-  {% endfor %}
+  <h2><a href="{% url 'brawl' %}">Brawl</a></h2>
+  <h2><a href="{% url 'athletics' %}">Athletics</a></h2>
+  <h2><a href="{% url 'occult' %}">Occult</a></h2>
+  <h2><a href="{% url 'resistance' %}">Resistance</a></h2>
+  <h2><a href="{% url 'evocations' %}">Evocations</a></h2>
 {% endblock %}
