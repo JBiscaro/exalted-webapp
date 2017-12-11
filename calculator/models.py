@@ -29,6 +29,7 @@ class Charm(models.Model):
     duration = models.CharField(max_length=50, blank=True, default='')
     description = models.TextField(default='t')
     dice_description = models.TextField(default='t')
+    short_description = models.TextField(default='s')
     slug = models.SlugField(unique=True)
     mote_cost = models.SmallIntegerField(blank=True, default=0)
     willpower_cost = models.SmallIntegerField(blank=True, default=0)

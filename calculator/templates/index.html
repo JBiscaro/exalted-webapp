@@ -3,6 +3,6 @@
 {% block content %}
   {% for charm in charms %}
     <h2><a href="{% url 'edit_charm' slug=charm.slug %}">{{ charm.name }}</a></h2>
-    <p>{{ charm.description }}<p>
+    <p>{{ charm.short_description }}<p>
   {% endfor %}
 {% endblock %}
