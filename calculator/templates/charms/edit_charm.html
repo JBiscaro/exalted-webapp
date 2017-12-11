@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block title %} {{ charm.name }} - {{block.super}}{% endblock %}
 {% block content %}
-<form role="form" action="" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Submit</button>
-</form>
+<h3><a href="{% url charm.ability %}">"<<< Back to Ability"</a></h3>
+{% if charm.selection %}
+  <h3><a href="{% url 'deactivate_charm' slug=charm.slug %}?next={{ request.path }}" class="auto-style2">Deactivate</a></h3>
+{% else %}
+  <h3><a href="{% url 'activate_charm' slug=charm.slug %}?next={{ request.path }}" class="auto-style2">Activate</a></h3>
+{% endif %}
 <h1>"{{ charm.name }}"</h1>
 <p><b>Motes</b></p>
 <p>{{ charm.mote_cost }}</p>

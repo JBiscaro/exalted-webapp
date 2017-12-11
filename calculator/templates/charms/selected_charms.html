@@ -3,7 +3,8 @@
 {% block content %}
 {% for charm in charms %}
 {% if charm.selection %}
-  <h1>"{{ charm.name }}"</h1>
+  <h1><a href="{% url 'edit_charm' slug=charm.slug %}" class="auto-style1">"{{ charm.name }}"</a></h1>
+  <p><a href="{% url 'deactivate_charm' slug=charm.slug %}?next={{ request.path }}" class="auto-style2">Deactivate</a></p>
 {% endif %}
 {% endfor %}
 {% endblock %}
