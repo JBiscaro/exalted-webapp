@@ -4,11 +4,7 @@ from calculator.models import Charm, Selection
 
 # Create your views here.
 def index(request):
-    charms = Charm.objects.all()
-
-    return render(request, 'index.html', {
-        'charms': charms,
-    })
+    return render(request, 'index.html')
 
 
 def edit_charm(request, slug):
