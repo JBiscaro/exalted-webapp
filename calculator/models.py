@@ -11,6 +11,13 @@ class Charm(models.Model):
         ('evocations', 'EVOCATIONS'),
     )
 
+    CHARM_TYPES = (
+        ('Simple', 'SIMPLE'),
+        ('Supplemental', 'SUPPLEMENTAL'),
+        ('Reflexive', 'REFLEXIVE'),
+        ('Permanent', 'PERMANENT'),
+    )
+
     name = models.CharField(max_length=255)
     selection = models.ForeignKey(
         'Selection',
@@ -24,11 +31,15 @@ class Charm(models.Model):
         choices=ABILITY_CHOICES,
         default='brawl'
     )
-    charm_type = models.CharField(max_length=50, blank=True, default='')
+    charm_type = models.CharField(
+        max_length=20,
+        choices=CHARM_TYPES,
+        default='Reflexive'
+    )
     keywords = models.CharField(max_length=255, blank=True, default='')
     duration = models.CharField(max_length=50, blank=True, default='')
     description = models.TextField(default='t')
-    dice_description = models.TextField(default='t')
+    dice_description = models.TextField(default='t', blank=True)
     short_description = models.TextField(default='s')
     slug = models.SlugField(unique=True)
     mote_cost = models.SmallIntegerField(blank=True, default=0)

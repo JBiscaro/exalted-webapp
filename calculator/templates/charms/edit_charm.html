@@ -30,11 +30,12 @@
   <p><b>Lethal Levels</b></p>
   <p>{{ charm.lethal_cost }}</p>
 {% endif %}
-<p><b>Type:</b>{{ charm.charm_type }}</p>
-<p><b>Keywords:</b>{{ charm.keywords }}</p>
-<p><b>Duration:</b>{{ charm.duration }}</p>
+<p><b>Type: </b>{{ charm.charm_type }}</p>
+<p><b>Keywords: </b>{{ charm.keywords }}</p>
+<p><b>Duration: </b>{{ charm.duration }}</p>
 <h1>Description:</h1>
 <p>{{ charm.description|linebreaks }}<p>
+<h1>Dice Details:</h1>
 <ul>
 <li>{{ charm.dice_description }}</li>
 </ul>
