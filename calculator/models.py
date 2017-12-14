@@ -49,6 +49,12 @@ class Charm(models.Model):
     bashing_cost = models.SmallIntegerField(blank=True, default=0)
     lethal_cost = models.SmallIntegerField(blank=True, default=0)
 
+    def __str__(self):
+        return self.name
+
 
 class Selection(models.Model):
-    pass
+    name = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
