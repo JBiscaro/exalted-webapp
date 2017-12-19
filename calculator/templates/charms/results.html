@@ -39,7 +39,7 @@
 </ul>
 {% for charm in charms %}
 <h2><a href="{% url 'edit_charm' slug=charm.slug %}" class="auto-style1">"{{ charm.name }}"</a></h2>
-<p><a href="{% url 'deactivate_charm' slug=charm.slug %}?next={{ request.path }}" class="auto-style2">Deactivate</a></p>
+<p><a href="{% url 'deactivate_charm' slug=charm.slug %}?next={{ request.path }}" class="auto-style2">X</a></p>
 <p><b>Type:</b>{{ charm.charm_type }}</p>
 <p><b>Keywords:</b>{{ charm.keywords }}</p>
 <p><b>Duration:</b>{{ charm.duration }}</p>

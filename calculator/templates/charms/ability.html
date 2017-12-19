@@ -3,7 +3,12 @@
 {% block content %}
   <h2>{{ ability|capfirst }}</h2>
   {% for charm in charms %}
-    <h3><a href="{% url 'edit_charm' slug=charm.slug %}">{{ charm.name }}</a></h3>
+    <h3><a href="{% url 'edit_charm' slug=charm.slug %}" class="auto-style1">{{ charm.name }}</a></h3>
+    {% if charm.selection %}
+      <p><a href="{% url 'deactivate_charm' slug=charm.slug %}?next={{ request.path }}" class="auto-style2">X</a></p>
+    {% else %}
+      <p><a href="{% url 'activate_charm' slug=charm.slug %}?next={{ request.path }}" class="auto-style2">Activate</a></p>
+    {% endif %}
     <p>{{ charm.short_description }}<p>
   {% endfor %}
 {% endblock %}
