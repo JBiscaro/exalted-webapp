@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Selected Charms - {{block.super}}{% endblock %}
+{% block title %}Results - {{block.super}}{% endblock %}
 {% block content %}
 <h1>Total Motes</h1>
 <p>{{ total_motes }}</p>
@@ -33,7 +33,7 @@
 <ul>
   {% for charm in charms %}
     {% if charm.dice_description %}
-      <li>{{ charm.dice_description|linebreaks }}</li>
+      <li>{{ charm.dice_description }}</li>
     {% endif %}
   {% endfor %}
 </ul>
